@@ -36,6 +36,7 @@
 
         let kartu = document.getElementById("kartu");
         function ubahKartu() {
+            kartu.className = "bg-white border px-8 py-6 border-4 border-gray-300 shadow-xl shadow-blue-300/50 rounded-2xl text-center animate__animated animate__fadeInUp w-full max-w-sm";
             kartu.innerHTML = ` 
         
         <h1 class="font-bold text-gray-800 animate__animated animate__zoomIn mt-3 text-2xl font-bold">
@@ -56,6 +57,7 @@
         }
 
         function ubahKartu2() {
+            kartu.className = "bg-white border px-10 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__fadeInRight w-full max-w-sm";
             kartu.innerHTML = ` 
         
         
@@ -78,7 +80,8 @@
         function ubahKartu3() {
             let bodyHal = document.getElementById("body-hal");
             bodyHal.style.backgroundImage = "url('https://raw.githubusercontent.com/Hilmi5/Fila/main/assets/gambar4.png')";
-            
+
+            kartu.className = "bg-white border px-10 py-8 border-4 border-gray-300 shadow-lg shadow-blue-300 rounded-xl text-center animate__animated animate__zoomIn w-full max-w-sm";
             kartu.innerHTML = ` 
         
         <img src= "https://raw.githubusercontent.com/Hilmi5/Fila/main/assets/gambar4.png" alt="Gambar" class="mx-auto">
