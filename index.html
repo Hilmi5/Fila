@@ -151,23 +151,39 @@
                 spread: 90,
                 origin: { y: 0.6 },
             });
-
-                        // Efek Love Berjatuhan (Hujan Love)
             setInterval(() => {
-                const heart = document.createElement("div");
-                heart.classList.add("falling-love");
-                heart.innerHTML = "💕"; // Bisa diganti emoji lain kayak 💖, ✨, atau 🌸
-                heart.style.left = Math.random() * window.innerWidth + "px";
-                heart.style.animationDuration = (Math.random() * 3 + 2) + "s"; // Kecepatan jatuh (2-5 detik)
-                heart.style.fontSize = (Math.random() * 15 + 15) + "px"; // Variasi ukuran
-                document.body.appendChild(heart);
+                const item = document.createElement("div");
+                item.classList.add("falling-love");
+                
+                // Daftar kata-kata dan emoji yang mau diturunkan (bisa ditambah/ubah sendiri)
+                const itemsToFall = [
+                    "💖 HBD Hanum!", 
+                    "✨ Stay Happy", 
+                    "🌸 You're Precious", 
+                    "💖", 
+                    "✨", 
+                    "🎉 HBDD!", 
+                    "💗"
+                ];
+                
+                item.innerHTML = itemsToFall[Math.floor(Math.random() * itemsToFall.length)];
+                
+                // Styling khusus biar teks hujannya keliatan rapi dan ada efek bayangan
+                item.style.color = "#db2777"; // Warna pink cantik
+                item.style.fontWeight = "bold";
+                item.style.textShadow = "0px 2px 4px rgba(0,0,0,0.1)";
+                
+                item.style.left = Math.random() * window.innerWidth + "px";
+                item.style.animationDuration = (Math.random() * 3 + 3) + "s"; // Durasi jatuh
+                item.style.fontSize = (Math.random() * 4 + 14) + "px"; // Ukuran teks/emoji
+                document.body.appendChild(item);
 
-                // Hapus elemen setelah jatuh ke bawah biar tidak menumpuk di memori
                 setTimeout(() => {
-                    heart.remove();
-                }, 5000);
-            }, 300); // Muncul setiap 0.3 detik
-            
+                    item.remove();
+                }, 6000);
+            }, 400); // Muncul setiap 0.4 detik supaya nggak terlalu menumpuk
+        }
+
         }
         function refresh() {
             location.reload();
