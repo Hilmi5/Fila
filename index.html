@@ -13,6 +13,23 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+    @keyframes fall {
+        0% { transform: translateY(-10vh) translateX(0); opacity: 1; }
+        100% { transform: translateY(105vh) translateX(20px); opacity: 0; }
+    }
+    .falling-love {
+        position: fixed;
+        top: -10vh;
+        font-size: 20px;
+        user-select: none;
+        pointer-events: none;
+        animation: fall linear infinite;
+        z-index: 999;
+    }
+    </style>
+    
 </head>
 
 <body id="body-hal" style="
@@ -135,6 +152,22 @@
                 origin: { y: 0.6 },
             });
 
+                        // Efek Love Berjatuhan (Hujan Love)
+            setInterval(() => {
+                const heart = document.createElement("div");
+                heart.classList.add("falling-love");
+                heart.innerHTML = "❤️"; // Bisa diganti emoji lain kayak 💖, ✨, atau 🌸
+                heart.style.left = Math.random() * window.innerWidth + "px";
+                heart.style.animationDuration = (Math.random() * 3 + 2) + "s"; // Kecepatan jatuh (2-5 detik)
+                heart.style.fontSize = (Math.random() * 15 + 15) + "px"; // Variasi ukuran
+                document.body.appendChild(heart);
+
+                // Hapus elemen setelah jatuh ke bawah biar tidak menumpuk di memori
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 300); // Muncul setiap 0.3 detik
+            
         }
         function refresh() {
             location.reload();
