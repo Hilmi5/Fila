@@ -53,6 +53,12 @@
 
         let kartu = document.getElementById("kartu");
         function ubahKartu() {
+            
+            let music = document.getElementById("bg-music");
+            music.play().catch(error => {
+                console.log("Audio play blocked or error: ", error);
+            });
+            
             kartu.className = "bg-white border px-8 py-6 border-4 border-gray-300 shadow-xl shadow-blue-300/50 rounded-2xl text-center animate__animated animate__fadeInUp w-full max-w-sm";
             kartu.innerHTML = ` 
         
